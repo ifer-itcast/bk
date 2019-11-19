@@ -4,8 +4,12 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+const bodyParser = require('body-parser');
+
 require('./model/connect');
 // require('./model/user');
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 // 模板引擎相关配置
 app.engine('art', require('express-art-template'));
