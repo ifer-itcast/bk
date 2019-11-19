@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 // 规则
 const userSchema = new mongoose.Schema({
@@ -31,15 +32,18 @@ const userSchema = new mongoose.Schema({
 // 集合
 const User = mongoose.model('User', userSchema);
 
-// User.create({
-//     username: 'ifer',
-//     password: 'ifer',
-//     email: 'ifer@qq.com',
-//     role: 'admin',
-//     state: 0
-// }).then(doc => {
-//     console.log(doc, '创建成功');
-// });
+async function createUser() {
+    const salt = await bcrypt.genSalt(10);
+    const pass = await bcrypt.hash('ifer', salt);
+    await User.create({
+        username: 'ifer',
+        password: pass,
+        email: 'ifer@qq.com',
+        role: 'admin',
+        state: 0
+    });
+}
+// createUser();
 
 module.exports = {
     // User: User
