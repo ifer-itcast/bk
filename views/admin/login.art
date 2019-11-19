@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{{extend './common/layout.art'}}
 
-<head>
-    <meta charset="UTF-8">
-    <title>用户登录</title>
-    <link rel="stylesheet" href="/admin/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/admin/css/base.css">
-</head>
-
-<body>
+{{block 'main'}}
     <div class="login-body">
         <div class="login-container">
             <h4 class="title">黑马程序员 - 博客管理员登录</h4>
@@ -28,8 +20,4 @@
             <div class="tips"></div>
         </div>
     </div>
-    <script src="/admin/lib/jquery/dist/jquery.min.js"></script>
-    <script src="/admin/lib/bootstrap/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+{{/block}}
