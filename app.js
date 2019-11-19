@@ -4,6 +4,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+require('./model/connect');
+// require('./model/user');
+
 // 模板引擎相关配置
 app.engine('art', require('express-art-template'));
 app.set('views', path.join(__dirname, 'views'));
