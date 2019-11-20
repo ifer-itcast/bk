@@ -3,6 +3,7 @@ const express = require('express');
 // 创建服务器
 const app = express();
 const path = require('path');
+const session = require('express-session');
 
 const bodyParser = require('body-parser');
 
@@ -10,6 +11,12 @@ require('./model/connect');
 // require('./model/user');
 
 app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(session({
+    secret: 'xxx',
+    saveUninitialized: false, // 用户不登录的情况下无需保存 connect.sid
+    maxAge: 24 * 60 * 60 * 1000 // 24 小时等于 24 * 60 分 等于 24 * 60 * 60 秒，等于 ...
+}));
 
 // 模板引擎相关配置
 app.engine('art', require('express-art-template'));

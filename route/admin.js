@@ -8,7 +8,9 @@ admin.get('/login', (req, res) => {
 });
 
 admin.get('/user', (req, res) => {
-    res.render('admin/user');
+    res.render('admin/user', {
+        username: req.session.username
+    });
 });
 
 admin.post('/login', async (req, res) => {
@@ -25,7 +27,9 @@ admin.post('/login', async (req, res) => {
         // ifer === $2b$10$ZeP4d790T0DDcMDaybD6gOq4R9EpgUiR1V/YHPQFIf.S0o1QLgecy
         let isValid = await bcrypt.compare(password, user.password);
         if(isValid) {
-            res.send('登录成功');
+            // res.send('登录成功');
+            req.session.username = user.username;
+            res.redirect('/admin/user');
         } else {
             res.status(400).render('admin/error', {
                 msg: '用户名或密码错误'
