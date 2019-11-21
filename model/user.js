@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const hash = require('../utils/hash');
 
 // 规则
 const userSchema = new mongoose.Schema({
@@ -36,9 +37,9 @@ async function createUser() {
     const salt = await bcrypt.genSalt(10);
     const pass = await bcrypt.hash('ifer', salt);
     await User.create({
-        username: 'ifer',
-        password: pass,
-        email: 'ifer@qq.com',
+        username: 'ifer1',
+        password: hash('ifer1'),
+        email: 'ifer1@qq.com',
         role: 'admin',
         state: 0
     });

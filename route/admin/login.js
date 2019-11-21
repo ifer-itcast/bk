@@ -1,5 +1,6 @@
 const {User} = require('../../model/user');
 const bcrypt = require('bcrypt');
+const hash = require('../../utils/hash');
 
 module.exports = async (req, res) => {
     const {email, password} = req.body;
@@ -14,7 +15,8 @@ module.exports = async (req, res) => {
     if(user) {
         // ifer === $2b$10$ZeP4d790T0DDcMDaybD6gOq4R9EpgUiR1V/YHPQFIf.S0o1QLgecy
         let isValid = await bcrypt.compare(password, user.password);
-        if(isValid) {
+        // ifer1
+        if(hash(password) === user.password) {
             // req.username = user.username;
             // connect-mongo: 存储 sessionID
             req.session.username = user.username;
