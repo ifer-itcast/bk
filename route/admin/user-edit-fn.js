@@ -1,4 +1,6 @@
 const Joi = require('joi');
+const {User} = require('../../model/user');
+const bcrypt = require('bcrypt');
 module.exports = async (req, res) => {
     // 定义规则
     const schema = {
@@ -12,7 +14,23 @@ module.exports = async (req, res) => {
     try {
         await Joi.validate(req.body, schema);
     } catch(err) {
-        console.log(err.message, 233);
-        res.redirect(`/admin/user-edit?message=${err.message}`);
+        return res.redirect(`/admin/user-edit?message=${err.message}`);
+    }
+
+    // req.body => 用户的所有信息
+    const user = await User.findOne({email: req.body.email});
+    console.log(user, req.body.email, 233);
+    if(user) {
+        // 之前的邮箱已经存在了
+        return res.redirect(`/admin/user-edit?message=邮箱已经存在`);
+    } else {
+        // 生成盐
+        const salt = await bcrypt.genSalt(10);
+        const password = await bcrypt.hash(req.body.password, salt);
+        req.body.password = password;
+        // 添加用户
+        await User.create(req.body);
+        // 跳转到用户列表
+        return res.redirect('/admin/user');
     }
 };
