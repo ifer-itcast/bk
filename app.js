@@ -39,4 +39,10 @@ app.use('/admin', admin);
 // 后台相关的路由
 app.use('/home', home);
 
+// 错误捕获
+app.use((err, req, res, next) => {
+    const errs = JSON.parse(err);
+    return res.redirect(`${errs.path}?message=${errs.message}`);
+});
+
 app.listen(3000);
