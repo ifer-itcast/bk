@@ -31,13 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const home = require('./route/home');
 const admin = require('./route/admin');
 
-app.use('/admin', (req, res, next) => {
-    if(req.url !== '/login' && !req.session.username) {
-        res.redirect('/admin/login');
-    } else {
-        next();
-    }
-});
+// 路由守卫，没有登录的情况下禁止访问后台界面
+app.use('/admin', require('./middleware/loginGuard'));
 
 // 前台相关的路由
 app.use('/admin', admin);
