@@ -13,6 +13,13 @@ admin.get('/user', (req, res) => {
     });
 });
 
+admin.get('/logout', (req, res) => {
+    req.session.destroy(function() {
+        res.clearCookie('connect.sid');
+        res.redirect('/admin/login');
+    });
+});
+
 admin.post('/login', async (req, res) => {
     const {email, password} = req.body;
     // 服务端校验

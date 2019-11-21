@@ -11,7 +11,11 @@ require('./model/connect');
 // require('./model/user');
 
 app.use(session({
-    secret: 'keyboard cat'
+    secret: 'keyboard cat',
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 24 * 60 * 60 * 1000 // 一天
+    }
 }));
 
 app.use(bodyParser.urlencoded({extended: false}));
