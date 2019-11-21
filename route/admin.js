@@ -3,6 +3,7 @@ const admin = express.Router();
 
 admin.get('/login', require('./admin/loginPage'));
 
+// 用户界面
 admin.get('/user', require('./admin/userPage'));
 
 admin.get('/logout', require('./admin/logout'));
