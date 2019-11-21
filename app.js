@@ -3,11 +3,16 @@ const express = require('express');
 // 创建服务器
 const app = express();
 const path = require('path');
+const session = require('express-session');
 
 const bodyParser = require('body-parser');
 
 require('./model/connect');
 // require('./model/user');
+
+app.use(session({
+    secret: 'keyboard cat'
+}));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
