@@ -29,7 +29,8 @@ admin.post('/login', async (req, res) => {
         if(isValid) {
             // req.username = user.username;
             req.session.username = user.username;
-            res.send('登录成功');
+            // res.send('登录成功');
+            res.redirect('/admin/user');
         } else {
             res.status(400).render('admin/error', {
                 msg: '用户名或密码错误'
