@@ -35,6 +35,7 @@ admin.post('/login', async (req, res) => {
         let isValid = await bcrypt.compare(password, user.password);
         if(isValid) {
             // req.username = user.username;
+            // connect-mongo: 存储 sessionID
             req.session.username = user.username;
             // res.send('登录成功');
             res.redirect('/admin/user');

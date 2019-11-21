@@ -31,6 +31,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 const home = require('./route/home');
 const admin = require('./route/admin');
 
+app.use('/admin', (req, res, next) => {
+    if(req.url !== '/login' && !req.session.username) {
+        res.redirect('/admin/login');
+    } else {
+        next();
+    }
+});
+
 // 前台相关的路由
 app.use('/admin', admin);
 // 后台相关的路由
