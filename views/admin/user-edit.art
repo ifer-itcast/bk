@@ -16,31 +16,31 @@
                 <p class="tips">错误信息</p>
             </div>
             <!-- /分类标题 -->
-            <form class="form-container">
+            <form class="form-container" action="/admin/user-edit" method="POST">
                 <div class="form-group">
                     <label>用户名</label>
-                    <input type="text" class="form-control" placeholder="请输入用户名">
+                    <input name="username" type="text" class="form-control" placeholder="请输入用户名">
                 </div>
                 <div class="form-group">
                     <label>邮箱</label>
-                    <input type="email" class="form-control" placeholder="请输入邮箱地址">
+                    <input name="email" type="email" class="form-control" placeholder="请输入邮箱地址">
                 </div>
                 <div class="form-group">
                     <label>密码</label>
-                    <input type="password" class="form-control" placeholder="请输入密码">
+                    <input name="password" type="password" class="form-control" placeholder="请输入密码">
                 </div>
                 <div class="form-group">
                     <label>角色</label>
-                    <select class="form-control">
-                        <option>普通用户</option>
-                        <option>超级管理员</option>
+                    <select class="form-control" name="role">
+                        <option value="normal">普通用户</option>
+                        <option value="admin">超级管理员</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>状态</label>
-                    <select class="form-control">
-                        <option>启用</option>
-                        <option>禁用</option>
+                    <select class="form-control" name="state">
+                        <option value="0">启用</option>
+                        <option value="1">禁用</option>
                     </select>
                 </div>
                 <div class="buttons">
