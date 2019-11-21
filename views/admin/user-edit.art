@@ -13,7 +13,7 @@
             <!-- 分类标题 -->
             <div class="title">
                 <h4>5b9a716cb2d2bf17706bcc0a</h4>
-                <p class="tips">错误信息</p>
+                <p class="tips">{{message && message}}</p>
             </div>
             <!-- /分类标题 -->
             <form class="form-container" action="/admin/user-edit" method="POST">
