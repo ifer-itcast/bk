@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+mongoose.set('useCreateIndex', true);
 mongoose.connect('mongodb://localhost/blog6', {
     useNewUrlParser: true,
     useUnifiedTopology: true

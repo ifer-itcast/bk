@@ -15,7 +15,8 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         maxAge: 24 * 60 * 60 * 1000 // 一天
-    }
+    },
+    resave: false
 }));
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -45,4 +46,4 @@ app.use((err, req, res, next) => {
     return res.redirect(`${errs.path}?message=${errs.message}`);
 });
 
-app.listen(3000);
+app.listen(3000, () => console.log('server listen on: http://localhost:3000'));

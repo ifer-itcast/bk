@@ -8,13 +8,15 @@ module.exports = async (req, res) => {
         res.render('admin/user-edit', {
             message,
             user,
-            link: '/admin/user-add'
+            link: '/admin/user-add',
+            button: '修改'
         });
     } else {
         // 添加
         res.render('admin/user-edit', {
             message,
-            link: '/admin/user-edit'
+            link: '/admin/user-edit',
+            button: '添加'
         });
     }
 };
