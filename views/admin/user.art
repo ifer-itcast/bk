@@ -36,7 +36,7 @@
                         <td>{{$value.role === 'admin' ? '超级管理员' : '普通用户'}}</td>
                         <td>{{$value.state == 0 ? '启用' : '禁用'}}</td>
                         <td>
-                            <a href="user-edit.html" class="glyphicon glyphicon-edit"></a>
+                            <a href="/admin/user-edit?id={{@$value._id}}" class="glyphicon glyphicon-edit"></a>
                             <i class="glyphicon glyphicon-remove" data-toggle="modal" data-target=".confirm-modal"></i>
                         </td>
                     </tr>
