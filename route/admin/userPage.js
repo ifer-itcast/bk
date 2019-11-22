@@ -1,5 +1,8 @@
 const {User} = require('../../model/user');
+
 module.exports = async (req, res) => {
+    req.app.locals.currentLink = 'user';
+
     // 页码
     const page = req.query.page || 1;
     // 每页显示的条数

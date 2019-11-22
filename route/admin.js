@@ -21,4 +21,10 @@ admin.post('/user-modify', require('./admin/user-modify'));
 
 admin.get('/user-delete', require('./admin/user-delete'));
 
+// 文章
+admin.get('/article', require('./admin/article'));
+
+// 文章编辑
+admin.get('/article-edit', require('./admin/article-edit'));
+
 module.exports = admin;

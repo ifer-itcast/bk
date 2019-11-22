@@ -1,13 +1,13 @@
 <div class="aside fl">
             <ul class="menu list-unstyled">
                 <li>
-                    <a class="item active" href="user.html">
+                    <a class="item {{currentLink == 'user' ? 'active' : ''}}" href="/admin/user">
 						<span class="glyphicon glyphicon-user"></span>
 						用户管理
 					</a>
                 </li>
                 <li>
-                    <a class="item" href="article.html">
+                    <a class="item {{currentLink == 'article' ? 'active' : ''}}" href="/admin/article">
 			  			<span class="glyphicon glyphicon-th-list"></span>
 			  			文章管理
 			  		</a>
