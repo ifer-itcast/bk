@@ -46,18 +46,16 @@
             <!-- /内容列表 -->
             <!-- 分页 -->
             <ul class="pagination">
-                <li>
-                    <a href="#">
+                <li style="display: <%= page <= 1 ? 'none' : 'inline' %>">
+                    <a href="/admin/user?page=<%= page-1 %>">
 			        <span>&laquo;</span>
 			      </a>
                 </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                    <a href="#">
+                <% for(let i = 1; i <= total; i ++) { %>
+                <li><a href="/admin/user?page=<%= i %>"><%= i %></a></li>
+                <% } %>
+                <li style="display: <%= page >= total ? 'none' : 'inline' %>">
+                    <a href="/admin/user?page=<%= page-0+1 %>">
 			        <span>&raquo;</span>
 			      </a>
                 </li>
