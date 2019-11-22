@@ -43,7 +43,15 @@ app.use('/home', home);
 // 错误捕获
 app.use((err, req, res, next) => {
     const errs = JSON.parse(err);
-    return res.redirect(`${errs.path}?message=${errs.message}`);
+    let arr = [];
+    // {path: '/admin', id: 'dfds', message: 'fdsf'}
+    for(let attr in errs) {
+        if(attr !== 'path') {
+            // [path='/admin', 'message='fsdffds']
+            arr.push(`${attr}=${errs[attr]}`);
+        }
+    }
+    return res.redirect(`${errs.path}?${arr.join('&')}`);
 });
 
 app.listen(3000, () => console.log('server listen on: http://localhost:3000'));
