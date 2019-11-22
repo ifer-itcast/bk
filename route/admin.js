@@ -27,4 +27,7 @@ admin.get('/article', require('./admin/article'));
 // 文章编辑
 admin.get('/article-edit', require('./admin/article-edit'));
 
+// 发布文章
+admin.post('/article-add', require('./admin/article-add'));
+
 module.exports = admin;

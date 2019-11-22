@@ -14,7 +14,7 @@
             <div class="title">
                 <h4>文章</h4>
                 <span>找到1篇文章</span>
-                <a href="article-edit.html" class="btn btn-primary new">发布新文章</a>
+                <a href="/admin/article-edit" class="btn btn-primary new">发布新文章</a>
             </div>
             <!-- /分类标题 -->
             <!-- 内容列表 -->
