@@ -363,6 +363,6 @@ h4 {
 	transform: translate(-50%);
 	width: 70%;
 }
-.active{
-	background-color: #eee!important;
+.pagination .active{
+	background-color: #eee;
 }
