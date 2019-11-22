@@ -18,6 +18,7 @@ module.exports = async (req, res) => {
             // req.username = user.username;
             // connect-mongo: 存储 sessionID
             req.session.username = user.username;
+            req.app.locals.userInfo = user;
             // res.send('登录成功');
             res.redirect('/admin/user');
         } else {
