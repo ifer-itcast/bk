@@ -9,7 +9,8 @@ module.exports = async (req, res) => {
             message,
             user,
             link: '/admin/user-modify?id='+id,
-            button: '修改'
+            button: '修改',
+            username: req.session.username
         });
     } else {
         // 添加

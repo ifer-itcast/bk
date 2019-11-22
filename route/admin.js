@@ -19,4 +19,6 @@ admin.post('/user-edit', require('./admin/user-edit-fn'));
 // 修改用户功能
 admin.post('/user-modify', require('./admin/user-modify'));
 
+admin.get('/user-delete', require('./admin/user-delete'));
+
 module.exports = admin;

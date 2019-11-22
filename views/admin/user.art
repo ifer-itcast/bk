@@ -37,7 +37,7 @@
                         <td>{{$value.state == 0 ? '启用' : '禁用'}}</td>
                         <td>
                             <a href="/admin/user-edit?id={{@$value._id}}" class="glyphicon glyphicon-edit"></a>
-                            <i class="glyphicon glyphicon-remove" data-toggle="modal" data-target=".confirm-modal"></i>
+                            <i class="glyphicon glyphicon-remove js-dialog" data-toggle="modal" data-target=".confirm-modal" data-idx="{{@$value._id}}"></i>
                         </td>
                     </tr>
                     {{/each}}
@@ -67,12 +67,13 @@
     <!-- 删除确认弹出框 -->
     <div class="modal fade confirm-modal">
         <div class="modal-dialog modal-lg">
-            <form class="modal-content">
+            <form class="modal-content" action="/admin/user-delete" method="get">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                     <h4 class="modal-title">请确认</h4>
                 </div>
                 <div class="modal-body">
+                    <input type="hidden" name="id" id="hidden-input">
                     <p>您确定要删除这个用户吗?</p>
                 </div>
                 <div class="modal-footer">
@@ -82,4 +83,12 @@
             </form>
         </div>
     </div>
+{{/block}}
+
+{{block 'script'}}
+<script>
+$(".js-dialog").on("click", function() {
+    $("#hidden-input").val($(this).attr('data-idx'))
+});
+</script>
 {{/block}}
