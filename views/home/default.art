@@ -1,33 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>首页</title>
-	<link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/index.css">
-</head>
-<body>
-	<!-- 头部框架开始 -->
-	<div class="header">
-		<div class="w1100">
-			<!-- 网站logo开始 -->
-			<h1 class="logo fl">
-				<a href="default.html"><img src="images/logo.png" alt="黑马程序员"></a>
-			</h1>
-			<!-- 网站logo结束 -->
-			<!-- 网站导航开始 -->
-			<ul class="navigation fr">
-				<li>
-					<a class="active" href="index.html">首页</a>
-				</li>
-				<li>
-					<a href="#">登录</a>
-				</li>
-			</ul>
-			<!-- 网站导航结束 -->
-		</div>
-	</div>
-	<!-- 头部框架结束 -->
+{{extend './common/layout.art'}}
+
+{{block 'link'}}
+<link rel="stylesheet" href="/home/css/index.css">
+{{/block}}
+
+{{block 'main'}}
+	{{include './common/header.art'}}
 	<!-- 文章列表开始 -->
 	<ul class="list w1100">
 		<li class="fl">
@@ -137,5 +115,4 @@
 		<a href="#">下一页</a>
 	</div>
 	<!-- 分页结束 -->
-</body>
-</html>
+{{/block}}

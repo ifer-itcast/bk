@@ -1,3 +1,3 @@
 module.exports = (req, res) => {
-    res.send('文章');
+    res.render('home/article');
 };
