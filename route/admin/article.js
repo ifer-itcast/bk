@@ -1,4 +1,8 @@
-module.exports = (req,res, next) => {
+const {Article} = require('../../model/article');
+module.exports = async (req,res, next) => {
     req.app.locals.currentLink = 'article';
-    res.render('admin/article');
+    const articles = await Article.find().populate('author');
+    res.render('admin/article', {
+        articles
+    });
 };

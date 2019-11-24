@@ -6,6 +6,9 @@ const path = require('path');
 const session = require('express-session');
 
 const bodyParser = require('body-parser');
+const artTemplate = require('art-template');
+const dateFormat = require('dateformat');
+artTemplate.defaults.imports.dateFormat = dateFormat;
 
 require('./model/connect');
 // require('./model/user');
