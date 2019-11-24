@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{each articles}}
+                    {{each articles.records}}
                     <tr>
                         <td>{{@$value._id}}</td>
                         <td>{{$value.title}}</td>
@@ -46,21 +46,23 @@
             <!-- /内容列表 -->
             <!-- 分页 -->
             <ul class="pagination">
+                {{if articles.page > 1}}
                 <li>
-                    <a href="#">
+                    <a href="/admin/article?page={{articles.page - 1}}">
 			        <span>&laquo;</span>
 			      </a>
                 </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+                {{/if}}
+                {{each articles.display}}
+                <li><a href="/admin/article?page={{$value}}">{{$value}}</a></li>
+                {{/each}}
+                {{if articles.page < articles.pages}}
                 <li>
-                    <a href="#">
+                    <a href="/admin/article?page={{articles.page - 0 + 1}}">
 			        <span>&raquo;</span>
 			      </a>
                 </li>
+                {{/if}}
             </ul>
             <!-- /分页 -->
         </div>
