@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{each articles}}
+                    {{each articles.records}}
                     <tr>
                         <td>{{@$value._id}}</td>
                         <td>{{$value.title}}</td>

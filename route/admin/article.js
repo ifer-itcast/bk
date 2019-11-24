@@ -1,3 +1,4 @@
+const {Article} = require('../../model/article');
 const paganition = require('mongoose-sex-page');
 
 module.exports = async (req,res, next) => {
