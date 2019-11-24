@@ -8,6 +8,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const artTemplate = require('art-template');
 const dateFormat = require('dateformat');
+const morgam = require('morgan');
 artTemplate.defaults.imports.dateFormat = dateFormat;
 
 require('./model/connect');
@@ -31,6 +32,13 @@ app.set('view engine', 'art');
 
 // 静态资源访问
 app.use(express.static(path.join(__dirname, 'public')));
+
+if(process.env.NODE_ENV === 'development') {
+    // 开发环境
+    app.use(morgam('short'));
+} else {
+    // 生产环境
+}
 
 const home = require('./route/home');
 const admin = require('./route/admin');
