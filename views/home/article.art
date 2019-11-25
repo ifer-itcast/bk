@@ -23,11 +23,11 @@
 				</div>
 				<div class="article-comment">
 					<h4>评论</h4>
-					{{if userInfo}}
+					{{if uid}}
 					<form class="comment-form" method="POST" action="/home/comment">
 						<textarea class="comment" name="content"></textarea>
 						<div class="items">
-							<input type="hidden" name="uid" value="{{@userInfo._id}}">
+							<input type="hidden" name="uid" value="{{@uid}}">
 							<input type="hidden" name="aid" value="{{@articles._id}}">
 							<input type="submit" value="提交">
 						</div>

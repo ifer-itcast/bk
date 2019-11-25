@@ -3,16 +3,20 @@
 		<div class="w1100">
 			<!-- 网站logo开始 -->
 			<h1 class="logo fl">
-				<a href="default.html"><img src="images/logo.png" alt="黑马程序员"></a>
+				<a href="/home"><img src="images/logo.png" alt="黑马程序员"></a>
 			</h1>
 			<!-- 网站logo结束 -->
 			<!-- 网站导航开始 -->
 			<ul class="navigation fr">
 				<li>
-					<a href="index.html">首页</a>
+					<a href="/home">首页</a>
 				</li>
 				<li>
-					<a href="#">登录</a>
+					{{if uid}}
+						<a href="/admin/logout">退出</a>
+					{{else}}
+						<a href="/admin/login">登录</a>
+					{{/if}}
 				</li>
 			</ul>
 			<!-- 网站导航结束 -->

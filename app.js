@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const config = require('config');
 
 const bodyParser = require('body-parser');
 const artTemplate = require('art-template');
@@ -17,10 +19,14 @@ require('./model/connect');
 app.use(session({
     secret: 'keyboard cat',
     saveUninitialized: false,
+    resave: false,
     cookie: {
         maxAge: 24 * 60 * 60 * 1000 // 一天
     },
-    resave: false
+    store: new MongoStore({
+        url: `mongodb://${config.get('db.user')}:${config.get('db.pwd')}@${config.get('db.host')}:${config.get('db.port')}/${config.get('db.name')}`,
+        autoRemoveInterval: 5
+    })
 }));
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -63,6 +69,11 @@ app.use((err, req, res, next) => {
         }
     }
     return res.redirect(`${errs.path}?${arr.join('&')}`);
+});
+
+// 404 Not Found
+app.use((req, res) => {
+    res.redirect('/home');
 });
 
 app.listen(3000, () => console.log('server listen on: http://localhost:3000'));

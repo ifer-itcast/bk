@@ -5,6 +5,7 @@ module.exports = async (req,res, next) => {
     let page = req.query.page || 1;
     const articles = await paganation(Article).find().page(page).size(2).display(5).populate('author').exec();
     res.render('admin/article', {
-        articles
+        articles,
+        username: req.session.username
     });
 };

@@ -12,6 +12,7 @@ module.exports = async (req, res) => {
     // res.send(comments);
     res.render('home/article', {
         articles,
-        comments
+        comments,
+        uid: req.session.uid
     });
 };

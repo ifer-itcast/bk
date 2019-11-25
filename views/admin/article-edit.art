@@ -11,7 +11,7 @@
         <!-- 侧边栏 -->
         <div class="main">
             <!-- 分类标题 -->
-            <div class="title">
+            <div class="title" style="display:none;">
                 <h4>5b9a716cb2d2bf17706bcc0a</h4>
             </div>
             <!-- /分类标题 -->
@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label>作者</label>
-                    <input name="author" type="text" class="form-control" readonly value="{{@userInfo._id}}">
+                    <input name="author" type="text" class="form-control" readonly value="{{@uid}}">
                 </div>
                 <div class="form-group">
                     <label>发布时间</label>

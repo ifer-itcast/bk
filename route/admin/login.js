@@ -19,7 +19,8 @@ module.exports = async (req, res) => {
             // connect-mongo: 存储 sessionID
             req.session.username = user.username;
             req.session.role = user.role;
-            req.app.locals.userInfo = user;
+            req.session.uid = user._id;
+            // req.app.locals.userInfo = user;
             if(user.role === "admin") {
                 // res.send('登录成功');
                 res.redirect('/admin/user');
