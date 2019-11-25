@@ -54,7 +54,7 @@
                 </li>
                 {{/if}}
                 {{each articles.display}}
-                <li><a href="/admin/article?page={{$value}}">{{$value}}</a></li>
+                <li><a class="{{$value == articles.page ? 'active' : ''}}" href="/admin/article?page={{$value}}">{{$value}}</a></li>
                 {{/each}}
                 {{if articles.page < articles.pages}}
                 <li>
