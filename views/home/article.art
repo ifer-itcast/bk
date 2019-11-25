@@ -36,16 +36,18 @@
 					<div><h3>登录后才能评论</h3></div>
 					{{/if}}
 					<div class="comment-list">
+						{{each comments}}
 						<div class="mb10">
 							<div class="article-info">
-								<span class="author">Coder</span>
-								<span>2020-09-10</span>
-								<span>wjb19891223@163.com</span>
+								<span class="author">{{$value.uid.username}}</span>
+								<span>{{dateFormat($value.time, 'yyyy-mm-dd')}}</span>
+								<span>{{$value.uid.email}}</span>
 							</div>
 							<div class="comment-content">
-								nice 就是这样, 非常好 !
+								{{$value.content}}
 							</div>
 						</div>
+						{{/each}}
 					</div>
 				</div>
 			</div>
