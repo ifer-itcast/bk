@@ -10,7 +10,7 @@
 	<ul class="list w1100">
 		{{each articles.records}}
 		<li class="fl">
-			<a href="article.html" class="thumbnail">
+			<a href="/home/article?id={{@$value._id}}" class="thumbnail">
 				<img src="{{$value.cover}}">
 			</a>
 			<div class="content">
@@ -20,7 +20,7 @@
 					<span>{{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</span>
 				</div>
 				<div class="brief">
-					{{@$value.content.replace(/<[^>]+>/g, '').substring(0, 150)}}
+					{{@$value.content.replace(/<[^>]+>/g, '').substring(0, 90)}}
 				</div>
 			</div>
 		</li>
