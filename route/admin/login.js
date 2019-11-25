@@ -18,9 +18,14 @@ module.exports = async (req, res) => {
             // req.username = user.username;
             // connect-mongo: 存储 sessionID
             req.session.username = user.username;
+            req.session.role = user.role;
             req.app.locals.userInfo = user;
-            // res.send('登录成功');
-            res.redirect('/admin/user');
+            if(user.role === "admin") {
+                // res.send('登录成功');
+                res.redirect('/admin/user');
+            } else {
+                res.redirect('/home');
+            }
         } else {
             res.status(400).render('admin/error', {
                 msg: '用户名或密码错误'
