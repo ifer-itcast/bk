@@ -9,7 +9,7 @@
 	<!-- 文章列表开始 -->
 	<ul class="list w1100">
 		{{each articles.records}}
-		<li class="fl">
+		<li class="{{$index % 2 ? 'fr' : 'fl'}}">
 			<a href="/home/article?id={{@$value._id}}" class="thumbnail">
 				<img src="{{$value.cover}}">
 			</a>

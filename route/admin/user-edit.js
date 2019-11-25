@@ -19,7 +19,8 @@ module.exports = async (req, res) => {
         res.render('admin/user-edit', {
             message,
             link: '/admin/user-edit',
-            button: '添加'
+            button: '添加',
+            username: req.session.username
         });
     }
 };
